@@ -49,7 +49,7 @@ res.json('register')
     "message": "Invalid credentials"
   }
  */
-router.post('/login',checkusernameExists(req,res,next) => {
+router.post('/login',checkUsernameExists,(req,res,next) => {
   res.json('login')
 })
 
