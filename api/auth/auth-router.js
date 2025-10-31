@@ -31,7 +31,8 @@ checkUsernameFree,
   }
  */
 router.post('/register',checkPasswordLength,checkUsernameFree,(req,res,next) => {
-res.json('register')
+ res.json('register')
+
 })
 
 /**
