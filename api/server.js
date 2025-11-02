@@ -23,16 +23,16 @@ const knex= require('../data/db-config')
 
 const server = express();
 server.use (session ({
-  name: 'choclateChip',
+  name: 'chocolatechip',
   secret: 'shh',
   saveUninitialized: false,
   resave:false,
   store: new Store ({
     knex,
     createTable: true,
-    clearInterval: 100 * 60 * 10,
+    clearInterval: 1000 * 60 * 10,
     tablame: 'sessions',
-        sidfieldname: 'sid',
+    sidfieldname: 'sid',
         }),
   cookie: {
     maxAge:1000 *60 *10,
