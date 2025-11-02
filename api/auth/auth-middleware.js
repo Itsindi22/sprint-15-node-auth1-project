@@ -10,7 +10,11 @@ const User = require ('../users/users-model')
   }
 */
 function restricted(req,res,next) {
-  next() 
+  if (req.session.user)  {
+    next()
+  } else { 
+    next({status:401, message: 'You shall not pass!'})
+  }
 
 }
 
@@ -29,7 +33,7 @@ async function checkUsernameFree(req, res, next) {
       next()
     }
     else { 
-      next ({username:"Username taken", status:422})
+      next ({message:"Username taken", status: 422 })
     }
   } catch (err) {
     next(err)
